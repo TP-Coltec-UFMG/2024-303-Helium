@@ -1,9 +1,8 @@
 
 # Parkour (nome provisório)
 
-<!-- Thumb
+<!-- Thumb -->
 <img src=".media/thumbnail.png"><br>
--->
 
 ## Sobre
 
