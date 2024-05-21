@@ -19,7 +19,19 @@
     <img src=".media/menu.png">
 </p>
 -->
-O menu, voltado para a acessibilidade, consiste em...
+O menu, voltado para a acessibilidade, consiste em:
+- Jogar;
+- Opções;
+- Créditos;
+- Sair.
+
+### Opções para a acessibilidade
+Dificuldade dinâmica/adaptativa é parte essencial do jogo, portanto não será opcional.
+- Volume;
+    - SFX;
+    - Música;
+- Filtros de cor;
+- Alto-contraste;
 
 ## Feito por
 - [Arif Drumond](https://github.com/drumon-iq);
