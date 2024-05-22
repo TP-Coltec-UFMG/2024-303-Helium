@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b31df56a26366d20a8c8a4fbb902974e
+guid: e75b2abf723013778b0992e1d95c4243
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: prateleira_produtos_de_limpeza
+  - name: Background
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -130,9 +130,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 256
-      height: 256
-    spriteID: 9e5cec66e0443ff28b6330f4928f13d0
+      width: 1280
+      height: 720
+    spriteID: c1cf11917b88f0b81847b625d4585239
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,24 +144,24 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -55271603
-    name: prateleira_produtos_de_limpeza
+    guid: -1021688250
+    name: Background
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: prateleira_produtos_de_limpeza
+    - name: Background
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
-        width: 256
-        height: 256
-      spriteId: 9e5cec66e0443ff28b6330f4928f13d0
+        width: 1280
+        height: 720
+      spriteId: c1cf11917b88f0b81847b625d4585239
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 256, y: 256}
+  canvasSize: {x: 1280, y: 720}
