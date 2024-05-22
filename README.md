@@ -14,11 +14,11 @@
 
 ### Menu inicial
 
-<!-- Screenshot do menu
+<!-- Screenshot do menu -->
 <p align="center">
     <img src=".media/menu.png">
 </p>
--->
+
 O menu, voltado para a acessibilidade, consiste em:
 - Jogar;
 - Opções;
