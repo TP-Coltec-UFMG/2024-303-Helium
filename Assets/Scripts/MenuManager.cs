@@ -15,7 +15,7 @@ public class MenuManager : MonoBehaviour
         mainMenu = transform.Find("MainMenu").gameObject;
         optionsMenu  = transform.Find("OptionsMenu").gameObject;
         creditsMenu = transform.Find("CreditsMenu").gameObject;
-        colorBlindnessMenu = optionsMenu.transform.Find("ColorBlindnessMenu").gameObject;
+        colorBlindnessMenu = transform.Find("ColorBlindnessMenu").gameObject;
     }
     public void PressStart()
     {
