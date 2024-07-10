@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class MenuManager : MonoBehaviour
     public void PressStart()
     {
         Debug.Log("Play signaled");
+        SceneManager.LoadScene("Niveis");
         // SceneManager.LoadScene("");
     }
     /* Sistema de toggle (alternar os valores de qual menu está aberto) */
