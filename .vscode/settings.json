@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "2024-303-Supermarket.sln"
+    "dotnet.defaultSolution": "2024-303-Helium.sln"
 }

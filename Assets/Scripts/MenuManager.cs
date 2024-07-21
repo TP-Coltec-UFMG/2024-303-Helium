@@ -20,8 +20,8 @@ public class MenuManager : MonoBehaviour
     }
     public void PressStart()
     {
-        Debug.Log("Play signaled");
         SceneManager.LoadScene("Niveis");
+        Debug.Log("Play signaled");
         // SceneManager.LoadScene("");
     }
     /* Sistema de toggle (alternar os valores de qual menu está aberto) */
