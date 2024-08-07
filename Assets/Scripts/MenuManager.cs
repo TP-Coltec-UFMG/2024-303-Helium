@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class MenuManager : MonoBehaviour
     }
     public void PressStart()
     {
+        SceneManager.LoadScene("Niveis");
         Debug.Log("Play signaled");
         // SceneManager.LoadScene("");
     }
