@@ -1,75 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LightBeamController : MonoBehaviour
-{
-    public Transform target;  // O alvo para onde o feixe de luz será direcionado
+{ 
+    public TextMeshProUGUI contadorText;
     private LineRenderer lineRenderer;
     public float moveSpeed = 3f;
     public Transform posInicial;
     public GameObject objectToDuplicate;
     [HideInInspector]
     public int direcao_move_x;
+    [HideInInspector]
     public int direcao_move_y;
     GameObject objetoAtual;
+    [HideInInspector]
+    public bool movimento;
+    private int contador = 0; 
 
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-
+        movimento = false;
         direcao_move_x = 1;
         direcao_move_y = 0;
-
-        // if (lineRenderer == null)
-        // {
-        //     Debug.LogError("LineRenderer não encontrado neste GameObject. Verifique se o componente está anexado.");
-        //     enabled = false; // Desativa este script para evitar erros adicionais
-        // }else{
-        //     Debug.Log("lineRenderer encontrado");
-        // }
     }
 
-    void Update()
-    {
-        // if (lineRenderer == null){
-        //     Debug.LogError("Line Rendeer está nulo");
-        //     return;
-        // }
-
-        // Debug.Log("entrou");
-        // // Atualiza a posição final do feixe de luz para o alvo
-        // lineRenderer.SetPosition(0, transform.position);
-        // Debug.Log(transform.position);
-
-        // if (target != null)
-        // {
-        //     lineRenderer.SetPosition(1, target.position);
-        //     Debug.Log(target.position);
-        // }
-        // else
-        // {
-        //     lineRenderer.SetPosition(1, transform.position + transform.forward * 10);
-        // }
-        
-        // Movimento com setas do teclado
-        float moveX = direcao_move_x * moveSpeed * Time.deltaTime;
-        float moveY = direcao_move_y * moveSpeed * Time.deltaTime;
-        transform.Translate(moveX, moveY, 0);
-
-        // Atualiza a posição do feixe de luz
-        lineRenderer.SetPosition(0, posInicial.position);
-        lineRenderer.SetPosition(lineRenderer.positionCount - 1, transform.position);
+    void Update (){
+        if (movimento == true){
+            // Movimento com setas do teclado
+            if (transform.position.x <= 6.3 && transform.position.x >= -8.9 && transform.position.y <= 5.05 && transform.position.y >= -5.05){
+                float moveX = direcao_move_x * moveSpeed * Time.deltaTime;
+                float moveY = direcao_move_y * moveSpeed * Time.deltaTime;
+                transform.Translate(moveX, moveY, 0);
+            }
+            
+            // Atualiza a posição do feixe de luz
+            lineRenderer.SetPosition(0, posInicial.position);
+            lineRenderer.SetPosition(lineRenderer.positionCount - 1, transform.position);
+        }
     }
 
     // Método chamado quando uma colisão 2D termina
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Colidiu");
-        Debug.Log(lineRenderer.positionCount);
         lineRenderer.positionCount += 1;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, transform.position);
-        if (collision.gameObject.name == "Refletor_right_up")
+
+        if (collision.gameObject.name.Contains("obv")){
+            collision.gameObject.SetActive(false);
+
+            contador++;
+
+            // Inicia o contador com zero
+            contadorText.text = contador.ToString();
+        }
+
+        if (collision.gameObject.name.Contains("Refletor_right_up"))
         {
             if (direcao_move_x == 1 && direcao_move_y == 0)
             {
@@ -79,7 +67,7 @@ public class LightBeamController : MonoBehaviour
                 direcao_move_x = -1;
                 direcao_move_y = 0;
             }
-        }else if(collision.gameObject.name == "Refletor_right_down"){
+        }else if(collision.gameObject.name.Contains("Refletor_right_down")){
             if (direcao_move_x == 1 && direcao_move_y == 0)
             {
                 direcao_move_x = 0;
@@ -88,7 +76,7 @@ public class LightBeamController : MonoBehaviour
                 direcao_move_x = -1;
                 direcao_move_y = 0;
             }
-        }else if(collision.gameObject.name == "Refletor_up_right"){
+        }else if(collision.gameObject.name.Contains("Refletor_up_right")){
             if (direcao_move_x == -1 && direcao_move_y == 0)
             {
                 direcao_move_x = 0;
@@ -97,7 +85,7 @@ public class LightBeamController : MonoBehaviour
                 direcao_move_x = 1;
                 direcao_move_y = 0;
             }
-        }else if(collision.gameObject.name == "Refletor_down_right"){
+        }else if(collision.gameObject.name.Contains("Refletor_down_right")){
             if (direcao_move_x == 0 && direcao_move_y == 1)
             {
                 direcao_move_x = 1;
