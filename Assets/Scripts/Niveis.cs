@@ -7,7 +7,7 @@ public class Niveis : MonoBehaviour
 {
     public void acessarNivel(string nivel)
     {
-        string scene = "nivel " + nivel;
+        string scene = "Nivel" + nivel;
         SceneManager.LoadScene(scene);
     }
 }
