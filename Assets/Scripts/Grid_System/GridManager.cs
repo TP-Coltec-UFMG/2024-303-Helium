@@ -39,15 +39,17 @@ public class GridManager : MonoBehaviour
 	{
 	    for(int y = 0; y < _rows; y++)
 	    {
-		float posX = (_tilePrefab.transform.localScale.x * (float)x) + offsetX;
-		float posY = (_tilePrefab.transform.localScale.y * (float)y) + offsetY;
-
-		var spawnedTile = Instantiate(_tilePrefab, new Vector3(posX, posY, 0), Quaternion.identity);
-		spawnedTile.name = $"SQ{x}:{y}";
-		
-		bool isRightColor = (x%2 == 0 && y%2 != 0) || (x%2 != 0 && y%2 == 0);
-		spawnedTile.GetComponent<GridCell>().Init(isRightColor);
+		InstantiateTile(x,y);
 	    }
 	}
+    }
+
+    void InstantiateTile(int x, int y)
+    {
+	float posX = (_tilePrefab.transform.localScale.x * (float)x) + offsetX;
+	float posY = (_tilePrefab.transform.localScale.y * (float)y) + offsetY;
+
+	var spawnedTile = Instantiate(_tilePrefab, new Vector3(posX, posY, 0), Quaternion.identity);
+	spawnedTile.name = $"Tile({x}:{y})";
     }
 }

@@ -5,23 +5,37 @@ using UnityEngine;
 public class GridCell : MonoBehaviour
 {
     [SerializeField] private Color _rightColor, _wrongColor;
-    private Color myColor;
+    private Color defaultTileColor;
 
-    public void Init(bool isRightColor)
+    void Start()
     {
-	myColor = isRightColor ? _rightColor : _wrongColor;
-	GetComponent<Renderer>().material.color = myColor;
+	defaultTileColor = _rightColor;
+	GetComponent<Renderer>().material.color = defaultTileColor;
     }
 
     void OnMouseOver()
     {
-	GetComponent<Renderer>().material.color = Color.red;
-	Debug.Log(gameObject.name + " diz : Ai, isso doi");
+	GetComponent<Renderer>().material.color = _wrongColor;
+	Debug.Log("Mouse over: " + gameObject.name);
     }
 
     void OnMouseExit()
     {
-	GetComponent<Renderer>().material.color = myColor;
+	GetComponent<Renderer>().material.color = defaultTileColor;
     }
 
+    void OnMouseDown()
+    {
+	string TileName = gameObject.name;
+	GameObject hangover = GameObject.Find("hangedRefletor");
+	
+	if(hangover != null && GameObject.Find($"{gameObject.name}.refletor") == null)
+	{
+	    hangover.GetComponent<Transform>().position = 
+		gameObject.transform.position + new Vector3(0,0,-1);
+
+	    hangover.GetComponent<Renderer>().enabled = true;
+	    hangover.name = $"{gameObject.name}.refletor";
+	}
+    }
 }
