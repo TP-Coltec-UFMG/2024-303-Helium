@@ -9,15 +9,14 @@ public class LightBeamController : MonoBehaviour
     private LineRenderer lineRenderer;
     public float moveSpeed = 3f;
     public Transform posInicial;
+
     public GameObject objectToDuplicate;
-    [HideInInspector]
-    public int direcao_move_x;
-    [HideInInspector]
-    public int direcao_move_y;
     GameObject objetoAtual;
-    [HideInInspector]
-    public bool movimento;
+
     private int contador = 0; 
+    public int direcao_move_x;
+    public int direcao_move_y;
+    public bool movimento;
 
     void Start()
     {
@@ -29,13 +28,12 @@ public class LightBeamController : MonoBehaviour
 
     void Update (){
         if (movimento == true){
+
             // Movimento com setas do teclado
-            if (transform.position.x <= 6.3 && transform.position.x >= -8.9 && transform.position.y <= 5.05 && transform.position.y >= -5.05){
-                float moveX = direcao_move_x * moveSpeed * Time.deltaTime;
-                float moveY = direcao_move_y * moveSpeed * Time.deltaTime;
-                transform.Translate(moveX, moveY, 0);
-            }
-            
+	    float moveX = direcao_move_x * moveSpeed * Time.deltaTime;
+	    float moveY = direcao_move_y * moveSpeed * Time.deltaTime;
+	    transform.Translate(moveX, moveY, 0);
+
             // Atualiza a posição do feixe de luz
             lineRenderer.SetPosition(0, posInicial.position);
             lineRenderer.SetPosition(lineRenderer.positionCount - 1, transform.position);
