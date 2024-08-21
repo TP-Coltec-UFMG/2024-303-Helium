@@ -22,8 +22,6 @@ public class LightBeamController : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         movimento = false;
-        direcao_move_x = 1;
-        direcao_move_y = 0;
     }
 
     void Update (){
