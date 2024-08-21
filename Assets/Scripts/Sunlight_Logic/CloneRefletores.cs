@@ -5,7 +5,16 @@ using UnityEngine;
 public class CloneRefletores : MonoBehaviour{
     public GameObject objeto;
     private Vector3 newPosition;
+    private Vector3 mousePos;
 
+    void onMouseDrag()
+    {
+        if(objeto != null){
+            GameObject clone = Instantiate(objeto, mousePos, Quaternion.Euler(0, 0, 0));
+
+            Destroy(clone.GetComponent<CloneRefletores>()); // Impede que o objeto clonado seja clonável
+        }
+    }
     void OnMouseDown (){
         newPosition = new Vector3(0, 0, -1);
 
