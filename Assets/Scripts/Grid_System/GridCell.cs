@@ -11,6 +11,7 @@ public class GridCell : MonoBehaviour
     {
 	defaultTileColor = _rightColor;
 	GetComponent<Renderer>().material.color = defaultTileColor;
+	gameObject.tag = "gridTile";
     }
 
     void OnMouseOver()

@@ -20,7 +20,17 @@ public class LightBeamController : MonoBehaviour
 
     void Start()
     {
-        lineRenderer = GetComponent<LineRenderer>();
+	GameObject[] allGridTiles ;
+	allGridTiles = GameObject.FindGameObjectsWithTag("gridTile");
+
+	foreach (GameObject tile in allGridTiles)
+	{
+	    Debug.Log("making " + gameObject.name + " ignore colision with " + tile.name);
+	    Physics2D.IgnoreCollision(tile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+	}
+
+
+	lineRenderer = GetComponent<LineRenderer>();
         movimento = false;
     }
 
@@ -53,7 +63,7 @@ public class LightBeamController : MonoBehaviour
             contadorText.text = contador.ToString();
         }
 
-        if (collision.gameObject.name.Contains("Refletor_right_up"))
+        if (collision.gameObject.tag == "ref_right_up")
         {
             if (direcao_move_x == 1 && direcao_move_y == 0)
             {
@@ -63,7 +73,7 @@ public class LightBeamController : MonoBehaviour
                 direcao_move_x = -1;
                 direcao_move_y = 0;
             }
-        }else if(collision.gameObject.name.Contains("Refletor_right_down")){
+        }else if(collision.gameObject.tag == "ref_right_down"){
             if (direcao_move_x == 1 && direcao_move_y == 0)
             {
                 direcao_move_x = 0;
@@ -72,7 +82,7 @@ public class LightBeamController : MonoBehaviour
                 direcao_move_x = -1;
                 direcao_move_y = 0;
             }
-        }else if(collision.gameObject.name.Contains("Refletor_up_right")){
+        }else if(collision.gameObject.tag == "ref_up_right"){
             if (direcao_move_x == -1 && direcao_move_y == 0)
             {
                 direcao_move_x = 0;
@@ -81,7 +91,7 @@ public class LightBeamController : MonoBehaviour
                 direcao_move_x = 1;
                 direcao_move_y = 0;
             }
-        }else if(collision.gameObject.name.Contains("Refletor_down_right")){
+        }else if(collision.gameObject.tag == "ref_down_right"){
             if (direcao_move_x == 0 && direcao_move_y == 1)
             {
                 direcao_move_x = 1;

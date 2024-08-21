@@ -31,8 +31,19 @@ public class GridManager : MonoBehaviour
 
 	Debug.Log("OFFSET X: " + offsetX);
 	Debug.Log("OFFSET Y: " + offsetY);
-    }
 
+	GameObject sol = GameObject.Find("SOL");
+	GameObject raio = GameObject.Find("LightSource");
+	GameObject primeiroTile = GameObject.Find("Tile(0:8)");
+
+	sol.GetComponent<Transform>().position = primeiroTile.GetComponent<Transform>().position +
+	    new Vector3(0, 3, 0);
+	raio.GetComponent<Transform>().position = sol.GetComponent<Transform>().position; 
+
+	raio.GetComponent<LineRenderer>().SetPosition(0, sol.GetComponent<Transform>().position);
+        raio.GetComponent<LineRenderer>().SetPosition(raio.GetComponent<LineRenderer>().positionCount - 1, sol.GetComponent<Transform>().position);
+
+    }
     void GenerateGrid()
     {
 	for(int x = 0; x < _columns; x++)
