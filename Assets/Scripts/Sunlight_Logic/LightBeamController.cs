@@ -32,6 +32,8 @@ public class LightBeamController : MonoBehaviour
 
 	lineRenderer = GetComponent<LineRenderer>();
         movimento = false;
+	lineRenderer.startWidth = 0.4f;
+	lineRenderer.endWidth = 0.4f;
     }
 
     void Update (){
@@ -54,7 +56,7 @@ public class LightBeamController : MonoBehaviour
         lineRenderer.positionCount += 1;
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, transform.position);
 
-        if (collision.gameObject.name.Contains("obv")){
+        if (collision.gameObject.name.Contains("maca")){
             collision.gameObject.SetActive(false);
 
             contador++;

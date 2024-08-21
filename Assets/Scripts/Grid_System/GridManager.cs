@@ -42,7 +42,6 @@ public class GridManager : MonoBehaviour
 
 	raio.GetComponent<LineRenderer>().SetPosition(0, sol.GetComponent<Transform>().position);
         raio.GetComponent<LineRenderer>().SetPosition(raio.GetComponent<LineRenderer>().positionCount - 1, sol.GetComponent<Transform>().position);
-
     }
     void GenerateGrid()
     {

@@ -27,6 +27,9 @@ public class PlayLightBeam : MonoBehaviour
 
             lbc.transform.position = lbc.posInicial.position;
 
+	    lbc.direcao_move_x = 0;
+	    lbc.direcao_move_y = -1;
+
             obv1.SetActive(true);
             obv2.SetActive(true);
             obv3.SetActive(true);
