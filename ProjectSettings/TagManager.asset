@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Menu
+  - gridTile
+  - ref_right_up
+  - ref_right_down
+  - ref_up_right
+  - ref_down_right
   layers:
   - Default
   - TransparentFX
