@@ -7,6 +7,8 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int _columns, _rows;
     [SerializeField] private GameObject _tilePrefab;
 
+    public bool doDevMode = false;
+
     private float width; 
     private float height;
 
@@ -61,5 +63,6 @@ public class GridManager : MonoBehaviour
 
 	var spawnedTile = Instantiate(_tilePrefab, new Vector3(posX, posY, 0), Quaternion.identity);
 	spawnedTile.name = $"Tile({x}:{y})";
+	spawnedTile.GetComponent<GridCell>().DevMode = doDevMode;
     }
 }

@@ -6,6 +6,7 @@ public class GridCell : MonoBehaviour
 {
     [SerializeField] private Color _rightColor, _wrongColor;
     private Color defaultTileColor;
+    public bool DevMode;
 
     void Start()
     {
@@ -14,10 +15,14 @@ public class GridCell : MonoBehaviour
 	gameObject.tag = "gridTile";
     }
 
-    void OnMouseOver()
+    void OnMouseEnter()
     {
 	GetComponent<Renderer>().material.color = _wrongColor;
-	Debug.Log("Mouse over: " + gameObject.name);
+
+	if(DevMode == true)
+	{
+		Debug.Log("Mouse over: " + gameObject.name);
+	}
     }
 
     void OnMouseExit()

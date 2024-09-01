@@ -50,6 +50,17 @@ public class LightBeamController : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+	    Debug.Log("Buceta de game engine");
+	    Debug.Log(col.transform.position);
+	    lineRenderer.SetPosition(lineRenderer.positionCount - 1, col.transform.position);
+	    GetComponent<Transform>().position = col.transform.position;
+	    lineRenderer.positionCount += 1;
+	    direcao_move_x = 1;
+	    direcao_move_y = 0;
+    }
+
     // Método chamado quando uma colisão 2D termina
     void OnCollisionEnter2D(Collision2D collision)
     {
