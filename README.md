@@ -4,10 +4,9 @@
 <!-- Thumb -->
 <img src=".media/thumbnail.png"><br>
 
-
 ### Sobre
 
-O jogo se trata de um point-and-click de múltiplas fases em que seu objetivo é direcionar o sol até às plantas.
+Trata-se de um *point-and-click* de múltiplas fases em que seu objetivo é direcionar o sol até às plantas.
 
 <!-- Screenshot da gameplay
 <p align="center">
@@ -22,20 +21,26 @@ O jogo se trata de um point-and-click de múltiplas fases em que seu objetivo é
 <p align="center">
     <img src=".media/menu.png">
 </p>
+<!-- Screenshots do menu de opções
+<p align="center">
+    <img src=".media/menu_opcoes.png">
+</p>
+-->
 
-O menu consiste em:
+
+O menu acessível consiste em:
 - Jogar;
 - Opções;
-- Créditos;
+    - Filtros de daltonismo;
+    <!-- <img src=".media/menu_opcoes_daltonismo.png"> Colagem lado-a-lado do menu com diferentes filtros de daltonismo -->
+    - Volume:
+        - Mixagem dos efeitos sonoros e da música ambiente;
+- Créditos; e
 - Sair.
-
-### Opções para a acessibilidade
-- Filtros de Daltonismo;
-- Opções de volume;
 
 ## Feito por
 - [Arif Drumond](https://github.com/drumon-iq);
 - [John Wesley](https://github.com/JohnBaska);
 - [Ketelin Luana](https://github.com/Ketelinluana);
-- [Matheus Telles](https://github.com/matheus-telles); 
+- [Matheus Telles](https://github.com/matheus-telles); e
 - [Pedro Henrique](https://github.com/devwannabe-dot).
