@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 254946240702057025}
+  - component: {fileID: 4985547644914698310}
   - component: {fileID: 3840878032373235248}
   - component: {fileID: 3815519339052726850}
-  - component: {fileID: 5520215272961596822}
   - component: {fileID: 3694978175192384466}
   m_Layer: 0
-  m_Name: LightSource
+  m_Name: FeixeDeLuz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +35,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4985547644914698310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215555456706395687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c0e1466dbf4c318816db0ca291c87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contadorText: {fileID: 0}
+  moveSpeed: 3
+  posInicial: {fileID: 0}
+  movimento: 0
+  direcaoLuz: {x: 0, y: 0, z: 0}
 --- !u!50 &3840878032373235248
 Rigidbody2D:
   serializedVersion: 4
@@ -97,25 +114,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5520215272961596822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215555456706395687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ba262467733c6409a41e7a68416379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contadorText: {fileID: 0}
-  moveSpeed: 3
-  posInicial: {fileID: 0}
-  objectToDuplicate: {fileID: 1215555456706395687}
-  direcao_move_x: 0
-  direcao_move_y: -1
-  movimento: 0
 --- !u!120 &3694978175192384466
 LineRenderer:
   serializedVersion: 2

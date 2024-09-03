@@ -2,6 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Tarefas para o Level Builder:
+ *  - Criar a grid
+ *  - Posicionar o sol
+ *  - Posicionar o feixe de luz
+ *  - Instanciar as maçãs e posiciona-las
+ */
+
+public class LevelBuilder : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
+
 public class GridManager : MonoBehaviour
 {
     [SerializeField] private int _columns, _rows;

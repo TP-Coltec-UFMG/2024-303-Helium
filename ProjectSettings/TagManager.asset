@@ -10,6 +10,8 @@ TagManager:
   - ref_right_down
   - ref_up_right
   - ref_down_right
+  - ref_up_left
+  - ref_down_left
   layers:
   - Default
   - TransparentFX
