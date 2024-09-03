@@ -5,9 +5,9 @@ using TMPro;
 
 public class movimento_do_raio : MonoBehaviour
 { 
-    private LineRenderer lineRenderer;
+    public LineRenderer lineRenderer;
     public float moveSpeed = 6f;
-    public Transform posInicial;
+    public Vector3 posInicial;
     public Vector3 direcaoLuz;
 
     private int contador = 0; 
@@ -19,8 +19,8 @@ public class movimento_do_raio : MonoBehaviour
 	lineRenderer.startWidth = 0.4f;
 	lineRenderer.endWidth = 0.4f;
 
-	lineRenderer.SetPosition(0, posInicial.position);
-	GetComponent<Transform>().position = posInicial.position;
+	lineRenderer.SetPosition(0, posInicial);
+	GetComponent<Transform>().position = posInicial;
     }
 
     void Update ()
@@ -36,11 +36,6 @@ public class movimento_do_raio : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
 	Debug.Log("Buceta de game engine");
-	Debug.Log(collider.transform.position);
-
-	Debug.Log("Direcao atual:");
-	Debug.Log(direcaoLuz);
-
 
 	if (collider.gameObject.tag == "ref_up_right")
 	{
