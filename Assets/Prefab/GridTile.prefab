@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9163302610961242769}
   m_Layer: 0
   m_Name: GridTile
-  m_TagString: gridTile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rightColor: {r: 1, g: 1, b: 1, a: 0.11764706}
   _wrongColor: {r: 0, g: 0, b: 0, a: 0.11764706}
+  DevMode: 0
+  tag: gridTile
 --- !u!61 &9163302610961242769
 BoxCollider2D:
   m_ObjectHideFlags: 0
