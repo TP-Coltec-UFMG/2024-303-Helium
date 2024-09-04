@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using System.Runtime.CompilerServices;
 
 public class MenuManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class MenuManager : MonoBehaviour
     private GameObject optionsMenu;
     private GameObject creditsMenu;
     private GameObject colorBlindnessMenu;
-    
+
     void Start()
     {
         mainMenu = transform.Find("MainMenu").gameObject;
@@ -42,12 +43,22 @@ public class MenuManager : MonoBehaviour
     }
     public void Back_ToMenu()
     {
-        optionsMenu.SetActive(false); creditsMenu.SetActive(false);
+        // Função única para voltar para o menu inicial
+        List<GameObject> menusToDisable = new List<GameObject>{optionsMenu, creditsMenu, colorBlindnessMenu};
+        foreach (GameObject currentMenu in menusToDisable){
+            currentMenu.SetActive(false);
+        }
+
         mainMenu.SetActive(true);
     }
     public void Back_ToOptions()
     {
-        colorBlindnessMenu.SetActive(false);
+        // Função única para retornar às opções após acessar quaisquer itens de acessibilidade presentes nelas
+        List<GameObject> menusToDisable = new List<GameObject>{colorBlindnessMenu};
+        foreach (GameObject currentMenu in menusToDisable){
+            currentMenu.SetActive(false);
+        }
+
         optionsMenu.SetActive(true);
     }
     public void ExitGame()
