@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1654565889420842291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 379172929284957393}
+  - component: {fileID: 666386017153742676}
+  m_Layer: 0
+  m_Name: Level Builder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &379172929284957393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654565889420842291}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &666386017153742676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654565889420842291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb428e54ab0ed36883986b01a3db5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doDevMode: 0
+  columns: 16
+  rows: 9
+  _tilePrefab: {fileID: 3367696287768056993, guid: 46d204479329ba97798e47a52ac93339, type: 3}
+  _SolPrefab: {fileID: 9164593499361860910, guid: e93aa62d63306f395b84b5c0b14c2142, type: 3}
+  _FeixeDeLuzPrefab: {fileID: 1215555456706395687, guid: 148502e2c70098854978ced7c130e1d8, type: 3}
+  _Maca: {fileID: 9178884530016123226, guid: 0e1a7dd15df25fce0ac836b9e8936d4f, type: 3}
+  bottao: {fileID: 8302437583742473967, guid: e4c32a23a057d15e7967a24c753797bb, type: 3}
+  _Ref_up_right: {fileID: 515543603276794020, guid: ac10fdf6e4c581512b93b01d05d3d7ff, type: 3}
+  _Ref_up_left: {fileID: 6276771369571685974, guid: 5348153e7a800ef6aad58415e01b36e9, type: 3}
+  _Ref_down_right: {fileID: 680639511159857922, guid: a91c51265c53f8713b66440897de9ee8, type: 3}
+  _Ref_down_left: {fileID: 8809960527302249680, guid: c5f0424853a83b10a8dd5b6e56541b38, type: 3}
+  _Div_right_up_down: {fileID: 1479677554722440894, guid: 813eea1902312172db3ce1f195e8474b, type: 3}
+  _Div_down_right_left: {fileID: 1097081093018662923, guid: ad00717189ecb46068fde444f2b66b4c, type: 3}
+  _Div_left_up_down: {fileID: 3219963049072641037, guid: f82740d7b35d9f37987903e33ce9c863, type: 3}
+  _Div_up_right_left: {fileID: 7390528149750299097, guid: 8b1cd85daef54bd1aa543c5522a492fd, type: 3}
+  _limparTela: {fileID: 4223820987525001026, guid: 22d882106e2b2bb1b9a925f3b00e060d, type: 3}
+  Score: {fileID: 0}

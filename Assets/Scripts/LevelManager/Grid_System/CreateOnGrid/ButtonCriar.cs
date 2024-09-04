@@ -7,7 +7,7 @@ public class ButtonCriar : MonoBehaviour{
     private Vector3 newPosition;
 
     void OnMouseDown (){
-        newPosition = new Vector3(100, 100, -1);
+        newPosition = new Vector3(100, 100, 0);
 
         // Verifica se o objeto que vai se clonado foi atribuído e o raio está parado
         if (objeto != null )

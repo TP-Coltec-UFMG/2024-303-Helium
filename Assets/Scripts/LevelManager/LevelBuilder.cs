@@ -176,50 +176,23 @@ public class LevelBuilder : MonoBehaviour {
 	    tileParedeEsq.GetComponent<SpriteRenderer>().enabled = false;
 	}
 
-	var rur = Instantiate(bottao, new Vector3(
-			gridManager.offsetX + (TILE_WIDTH*-2),
-			gridManager.offsetY + (TILE_HEIGHT*rows),0), Quaternion.identity);
-	rur.GetComponent<ButtonCriar>().objeto = _Ref_up_right;
+	InstantiateBotao(_Ref_up_right, -2, 0);
+	InstantiateBotao(_Ref_up_left, -2, 1);
+	InstantiateBotao(_Ref_down_right, -2, 2);
+	InstantiateBotao(_Ref_down_left, -2, 3);
 
-    	var rul = Instantiate(bottao, new Vector3(
-			gridManager.offsetX + (TILE_WIDTH*-2),
-			gridManager.offsetY + (TILE_HEIGHT*(rows-2)),0), Quaternion.identity);
-	rul.GetComponent<ButtonCriar>().objeto = _Ref_up_left;
+	InstantiateBotao(_Div_right_up_down, columns+1, 0);
+	InstantiateBotao(_Div_down_right_left, columns+1, 1);
+	InstantiateBotao(_Div_left_up_down, columns+1, 2);
+	InstantiateBotao(_Div_up_right_left, columns+1, 3);
 
-    	var rdr = Instantiate(bottao, new Vector3(
-			gridManager.offsetX + (TILE_WIDTH*-2),
-			gridManager.offsetY + (TILE_HEIGHT*(rows-4)),0), Quaternion.identity);
-	rdr.GetComponent<ButtonCriar>().objeto = _Ref_down_right;
-
-    	var rdl = Instantiate(bottao, new Vector3(
-			gridManager.offsetX + (TILE_WIDTH*-2),
-			gridManager.offsetY + (TILE_HEIGHT*(rows-6)),0), Quaternion.identity);
-	rdl.GetComponent<ButtonCriar>().objeto = _Ref_down_left;
-
-	var drud = Instantiate(bottao, new Vector3(
-			(gridManager.offsetX*-1) + TILE_WIDTH*2,
-			gridManager.offsetY + (TILE_HEIGHT*rows),0), Quaternion.identity);
-	drud.GetComponent<ButtonCriar>().objeto = _Div_right_up_down;
-
-    	var ddrl = Instantiate(bottao, new Vector3(
-			(gridManager.offsetX*-1) + TILE_WIDTH*2,
-			gridManager.offsetY + (TILE_HEIGHT*(rows-2)),0), Quaternion.identity);
-	ddrl.GetComponent<ButtonCriar>().objeto = _Div_down_right_left;
-
-    	var dlud = Instantiate(bottao, new Vector3(
-			(gridManager.offsetX*-1) + TILE_WIDTH*2,
-			gridManager.offsetY + (TILE_HEIGHT*(rows-4)),0), Quaternion.identity);
-	dlud.GetComponent<ButtonCriar>().objeto = _Div_left_up_down;
-
-    	var durl = Instantiate(bottao, new Vector3(
-			(gridManager.offsetX*-1) + TILE_WIDTH*2,
-			gridManager.offsetY + (TILE_HEIGHT*(rows-6)),0), Quaternion.identity);
-	durl.GetComponent<ButtonCriar>().objeto = _Div_up_right_left;
 
     	var reiniciar = Instantiate(_limparTela, new Vector3(
-			gridManager.offsetX + (TILE_WIDTH*-2),
-			gridManager.offsetY + (TILE_HEIGHT*(rows-8)),0), Quaternion.identity);
+			gridManager.offsetX + (TILE_WIDTH*-4),
+			gridManager.offsetY + (TILE_HEIGHT*(rows-9)),0), Quaternion.identity);
 	reiniciar.GetComponent<Reiniciar>().sol = Sol;
+	reiniciar.GetComponent<Transform>().localScale = new Vector3(3, 3, 1);
+	reiniciar.GetComponent<BoxCollider2D>().size = new Vector2(0.5f, 0.5f);
 
 	//Não tampar o sol
 	var tampa = GameObject.Find("tileTeto0");
@@ -229,4 +202,15 @@ public class LevelBuilder : MonoBehaviour {
 	}
     }
 
+    public void InstantiateBotao(GameObject objClonar, int distPar, int Pos)
+    {
+	var butao = Instantiate(bottao, new Vector3(
+			gridManager.offsetX + (TILE_WIDTH*distPar),
+			gridManager.offsetY + (TILE_HEIGHT*(rows-(Pos*2))),0), Quaternion.identity);
+	butao.GetComponent<ButtonCriar>().objeto = objClonar;
+	butao.GetComponent<SpriteRenderer>().sprite = objClonar.GetComponent<SpriteRenderer>().sprite;
+	butao.GetComponent<SpriteRenderer>().flipX = objClonar.GetComponent<SpriteRenderer>().flipX;
+	butao.GetComponent<SpriteRenderer>().flipY = objClonar.GetComponent<SpriteRenderer>().flipY;
+	butao.GetComponent<Renderer>().material.color = Color.red;
+    }
 }

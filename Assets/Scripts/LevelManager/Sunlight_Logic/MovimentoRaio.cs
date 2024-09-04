@@ -132,7 +132,7 @@ public class movimento_do_raio : MonoBehaviour
 	}
 	else if(collider.gameObject.tag == "div_down_right_left")
 	{
-	    if (direcaoLuz == Vector3.down)
+	    if (direcaoLuz == Vector3.up)
 	    {
 		clonarLuz(Vector3.right, collider.transform.position, collider);
 		clonarLuz(Vector3.left, collider.transform.position, collider);
