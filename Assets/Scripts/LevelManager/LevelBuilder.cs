@@ -27,6 +27,7 @@ public class LevelBuilder : MonoBehaviour {
     [SerializeField] private GameObject _Div_left_up_down;
     [SerializeField] private GameObject _Div_up_right_left;
     [SerializeField] private GameObject _limparTela;
+    [SerializeField] private GameObject _returnBot;
 
     public GameObject Score;
 

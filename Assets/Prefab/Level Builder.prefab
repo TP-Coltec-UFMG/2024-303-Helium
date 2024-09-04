@@ -61,4 +61,5 @@ MonoBehaviour:
   _Div_left_up_down: {fileID: 3219963049072641037, guid: f82740d7b35d9f37987903e33ce9c863, type: 3}
   _Div_up_right_left: {fileID: 7390528149750299097, guid: 8b1cd85daef54bd1aa543c5522a492fd, type: 3}
   _limparTela: {fileID: 4223820987525001026, guid: 22d882106e2b2bb1b9a925f3b00e060d, type: 3}
+  _returnBot: {fileID: 8302437583742473967, guid: fd1fd1459ba990fcf9d45efc4613fb73, type: 3}
   Score: {fileID: 0}
