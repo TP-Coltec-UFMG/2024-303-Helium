@@ -1,9 +1,11 @@
 using System.Collections; using System.Collections.Generic; 
 using UnityEngine; 
 /* Tarefas para o Level Builder: 
- * - Criar a grid - Posicionar o sol 
- * - Posicionar o feixe de luz 
- * - Instanciar as maçãs e posiciona-las 
+ *  - Criar a grid			  (Y) 
+ *  - Posicionar o sol			  (Y)
+ *  - Posicionar o feixe de luz		  (Y)
+ *  - Instanciar as maçãs e posiciona-las (Y)
+ *  - Criar Parede envolta da grid
  *   */ 
 
 public class LevelBuilder : MonoBehaviour { 
@@ -12,6 +14,7 @@ public class LevelBuilder : MonoBehaviour {
     [SerializeField] private GameObject _tilePrefab; 
     [SerializeField] private GameObject _SolPrefab; 
     [SerializeField] private GameObject _FeixeDeLuzPrefab; 
+    [SerializeField] private GameObject _Maca;
 
     private GameObject Sol; 
     private GameObject FeixeDeLuz; 
@@ -19,7 +22,8 @@ public class LevelBuilder : MonoBehaviour {
     GameObject levelGrid; 
     private GridManager gridManager; 
 
-    private float TILE_WIDTH; private float TILE_HEIGHT;
+    private float TILE_WIDTH; 
+    private float TILE_HEIGHT;
 
 
     // Start is called before the first frame update
@@ -50,6 +54,9 @@ public class LevelBuilder : MonoBehaviour {
  //*  - Posicionar o sol
 	Sol = Instantiate(_SolPrefab, pontoInicialLuz, Quaternion.identity);
 	Sol.GetComponent<RaioLuzToggle>().ObjetoFeixeDeLuz = FeixeDeLuz;
+//*   - Maçãs aleatorias
+	ColocarMaca(14012006);
+//*   - Parede envolta da grid
     }
 
     void OnEnable()
@@ -68,18 +75,35 @@ public class LevelBuilder : MonoBehaviour {
         
     }
 
-    private void posicionarSol()
+    public void ColocarMaca(int espermatozoide)
     {
-	GameObject sol = GameObject.Find("SOL");
-	GameObject raio = GameObject.Find("LightSource");
-	GameObject primeiroTile = GameObject.Find("Tile(0:8)");
+	Random.InitState(espermatozoide);
+	
+	int amountMaca = Random.Range(1,8);
 
-	sol.GetComponent<Transform>().position = primeiroTile.GetComponent<Transform>().position +
-	    new Vector3(0, 3, 0);
-	raio.GetComponent<Transform>().position = sol.GetComponent<Transform>().position; 
+	int[,] macaPos = new int[amountMaca, 2];
 
-	raio.GetComponent<LineRenderer>().SetPosition(0, sol.GetComponent<Transform>().position);
-	raio.GetComponent<LineRenderer>().SetPosition(raio.GetComponent<LineRenderer>().positionCount - 1, sol.GetComponent<Transform>().position);
+	//Decidir coordenada
+	for(int i=0; i<amountMaca; i++)
+	{
+	    int x = Random.Range(0, columns);
+	    int y = Random.Range(0, rows);
+	    macaPos[i, 0] = x;
+	    macaPos[i, 1] = y;
+	}
+
+	for(int i = 0; i<amountMaca; i++)
+	{
+	    Vector3 gridMaca = gridManager.grid[macaPos[i, 0], macaPos[i, 1]].transform.position;
+	    Debug.Log($"Maca {i}: x = {macaPos[i, 0]}, y = {macaPos[i, 1]}");
+	    Debug.Log(gridMaca);
+	    Instantiate(_Maca, gridMaca, Quaternion.identity);
+	}
+    }
+
+    public void CriarParedes()
+    {
+
     }
 
 }

@@ -37,7 +37,13 @@ public class movimento_do_raio : MonoBehaviour
     {
 	Debug.Log("Buceta de game engine");
 
-	if (collider.gameObject.tag == "ref_up_right")
+	if (collider.gameObject.tag == "gridTile")
+	{
+	    // Ignorar a colisão 
+	    Debug.Log("Algo para fodase");
+	    return;
+	}
+	else if (collider.gameObject.tag == "ref_up_right")
 	{
 
 	    if (direcaoLuz == Vector3.down)
@@ -100,8 +106,8 @@ public class movimento_do_raio : MonoBehaviour
 	}
 	else
 	{
-	    // Ignorar a colisão 
-	    Debug.Log("Algo para fodase");
+	    Debug.Log("Enfiei a pica na parede");
+	    direcaoLuz = Vector3.zero;
 	    return;
 	}
 

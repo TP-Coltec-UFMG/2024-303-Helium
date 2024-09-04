@@ -7,12 +7,13 @@ public class GridCell : MonoBehaviour
     [SerializeField] private Color _rightColor, _wrongColor;
     private Color defaultTileColor;
     public bool DevMode;
+    public string tag = "gridTile";
 
     void Start()
     {
 	defaultTileColor = _rightColor;
 	GetComponent<Renderer>().material.color = defaultTileColor;
-	gameObject.tag = "gridTile";
+	gameObject.tag = tag;
     }
 
     void OnMouseEnter()
