@@ -17,10 +17,15 @@ public class LevelBuilder : MonoBehaviour {
     [SerializeField] private GameObject _SolPrefab; 
     [SerializeField] private GameObject _FeixeDeLuzPrefab; 
     [SerializeField] private GameObject _Maca;
-    [SerializeField] private GameObject _Bot_up_right;
-    [SerializeField] private GameObject _Bot_up_left;
-    [SerializeField] private GameObject _Bot_down_right;
-    [SerializeField] private GameObject _Bot_down_left;
+    [SerializeField] private GameObject bottao;
+    [SerializeField] private GameObject _Ref_up_right;
+    [SerializeField] private GameObject _Ref_up_left;
+    [SerializeField] private GameObject _Ref_down_right;
+    [SerializeField] private GameObject _Ref_down_left;
+    [SerializeField] private GameObject _Div_right_up_down;
+    [SerializeField] private GameObject _Div_down_right_left;
+    [SerializeField] private GameObject _Div_left_up_down;
+    [SerializeField] private GameObject _Div_up_right_left;
     [SerializeField] private GameObject _limparTela;
 
     public GameObject Score;
@@ -76,7 +81,7 @@ public class LevelBuilder : MonoBehaviour {
 	Sol.name = "Sol";
 
 //*   - Maçãs aleatorias
-	ColocarMaca(14012006);
+	Score.GetComponent<Contador>().total = ColocarMaca(14012006);
 //*   - Parede envolta da grid
 	CriarParedes();
     }
@@ -101,7 +106,7 @@ public class LevelBuilder : MonoBehaviour {
     {
 	Random.InitState(espermatozoide);
 	
-	int amountMaca = Random.Range(1,8);
+	int amountMaca = Random.Range(1,4);
 
 	int[,] macaPos = new int[amountMaca, 2];
 
@@ -171,23 +176,51 @@ public class LevelBuilder : MonoBehaviour {
 	    tileParedeEsq.GetComponent<SpriteRenderer>().enabled = false;
 	}
 
-	Instantiate(_Bot_up_right, new Vector3(
-			gridManager.offsetX + (TILE_WIDTH*-1),
+	var rur = Instantiate(bottao, new Vector3(
+			gridManager.offsetX + (TILE_WIDTH*-2),
 			gridManager.offsetY + (TILE_HEIGHT*rows),0), Quaternion.identity);
-    	Instantiate(_Bot_up_left, new Vector3(
-			gridManager.offsetX + (TILE_WIDTH*-1),
-			gridManager.offsetY + (TILE_HEIGHT*(rows-2)),0), Quaternion.identity);
-    	Instantiate(_Bot_down_right, new Vector3(
-			gridManager.offsetX + (TILE_WIDTH*-1),
-			gridManager.offsetY + (TILE_HEIGHT*(rows-4)),0), Quaternion.identity);
-    	Instantiate(_Bot_down_left, new Vector3(
-			gridManager.offsetX + (TILE_WIDTH*-1),
-			gridManager.offsetY + (TILE_HEIGHT*(rows-6)),0), Quaternion.identity);
-    	var reiniciar = Instantiate(_limparTela, new Vector3(
-			gridManager.offsetX + (TILE_WIDTH*-1),
-			gridManager.offsetY + (TILE_HEIGHT*(rows-8)),0), Quaternion.identity);
+	rur.GetComponent<ButtonCriar>().objeto = _Ref_up_right;
 
+    	var rul = Instantiate(bottao, new Vector3(
+			gridManager.offsetX + (TILE_WIDTH*-2),
+			gridManager.offsetY + (TILE_HEIGHT*(rows-2)),0), Quaternion.identity);
+	rul.GetComponent<ButtonCriar>().objeto = _Ref_up_left;
+
+    	var rdr = Instantiate(bottao, new Vector3(
+			gridManager.offsetX + (TILE_WIDTH*-2),
+			gridManager.offsetY + (TILE_HEIGHT*(rows-4)),0), Quaternion.identity);
+	rdr.GetComponent<ButtonCriar>().objeto = _Ref_down_right;
+
+    	var rdl = Instantiate(bottao, new Vector3(
+			gridManager.offsetX + (TILE_WIDTH*-2),
+			gridManager.offsetY + (TILE_HEIGHT*(rows-6)),0), Quaternion.identity);
+	rdl.GetComponent<ButtonCriar>().objeto = _Ref_down_left;
+
+	var drud = Instantiate(bottao, new Vector3(
+			(gridManager.offsetX*-1) + TILE_WIDTH*2,
+			gridManager.offsetY + (TILE_HEIGHT*rows),0), Quaternion.identity);
+	drud.GetComponent<ButtonCriar>().objeto = _Div_right_up_down;
+
+    	var ddrl = Instantiate(bottao, new Vector3(
+			(gridManager.offsetX*-1) + TILE_WIDTH*2,
+			gridManager.offsetY + (TILE_HEIGHT*(rows-2)),0), Quaternion.identity);
+	ddrl.GetComponent<ButtonCriar>().objeto = _Div_down_right_left;
+
+    	var dlud = Instantiate(bottao, new Vector3(
+			(gridManager.offsetX*-1) + TILE_WIDTH*2,
+			gridManager.offsetY + (TILE_HEIGHT*(rows-4)),0), Quaternion.identity);
+	dlud.GetComponent<ButtonCriar>().objeto = _Div_left_up_down;
+
+    	var durl = Instantiate(bottao, new Vector3(
+			(gridManager.offsetX*-1) + TILE_WIDTH*2,
+			gridManager.offsetY + (TILE_HEIGHT*(rows-6)),0), Quaternion.identity);
+	durl.GetComponent<ButtonCriar>().objeto = _Div_up_right_left;
+
+    	var reiniciar = Instantiate(_limparTela, new Vector3(
+			gridManager.offsetX + (TILE_WIDTH*-2),
+			gridManager.offsetY + (TILE_HEIGHT*(rows-8)),0), Quaternion.identity);
 	reiniciar.GetComponent<Reiniciar>().sol = Sol;
+
 	//Não tampar o sol
 	var tampa = GameObject.Find("tileTeto0");
 	if (tampa != null)
