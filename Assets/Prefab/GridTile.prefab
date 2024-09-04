@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9163302610961242769}
   m_Layer: 0
   m_Name: GridTile
-  m_TagString: gridTile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   _rightColor: {r: 1, g: 1, b: 1, a: 0.11764706}
   _wrongColor: {r: 0, g: 0, b: 0, a: 0.11764706}
   DevMode: 0
+  tag: gridTile
 --- !u!61 &9163302610961242769
 BoxCollider2D:
   m_ObjectHideFlags: 0

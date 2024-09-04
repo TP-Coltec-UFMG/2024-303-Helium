@@ -45,6 +45,7 @@ public class GridManager : MonoBehaviour
 	var spawnedTile = Instantiate(tilePrefab, new Vector3(posX, posY, 0), Quaternion.identity);
 	spawnedTile.name = $"Tile({x}:{y})";
 	spawnedTile.GetComponent<GridCell>().DevMode = doDevMode;
+	spawnedTile.tag = "gridTile";
 
 	return spawnedTile;
     }
