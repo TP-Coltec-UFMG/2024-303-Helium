@@ -105,6 +105,106 @@ public class movimento_do_raio : MonoBehaviour
 		direcaoLuz = Vector3.zero;
 	    }
 	}
+	else if(collider.gameObject.tag == "div_right_up_down")
+	{
+	    if (direcaoLuz == Vector3.left)
+	    {
+		clonarLuz(Vector3.up, collider.transform.position, collider);
+		clonarLuz(Vector3.down, collider.transform.position, collider);
+		direcaoLuz = Vector3.zero;
+	    }
+	    else if (direcaoLuz == Vector3.down)
+	    {
+		clonarLuz(Vector3.right, collider.transform.position, collider);
+		clonarLuz(Vector3.down, collider.transform.position, collider);
+		direcaoLuz = Vector3.zero;
+	    }
+	    else if (direcaoLuz == Vector3.up)
+	    {
+		clonarLuz(Vector3.right, collider.transform.position, collider);
+		clonarLuz(Vector3.up, collider.transform.position, collider);
+		direcaoLuz = Vector3.zero;
+	    }
+	    else
+	    {
+		direcaoLuz = Vector3.zero;
+	    }
+	}
+	else if(collider.gameObject.tag == "div_down_right_left")
+	{
+	    if (direcaoLuz == Vector3.down)
+	    {
+		clonarLuz(Vector3.right, collider.transform.position, collider);
+		clonarLuz(Vector3.left, collider.transform.position, collider);
+		direcaoLuz = Vector3.zero;
+	    }
+	    else if (direcaoLuz == Vector3.left)
+	    {
+		clonarLuz(Vector3.left, collider.transform.position, collider);
+		clonarLuz(Vector3.down, collider.transform.position, collider);
+		direcaoLuz = Vector3.zero;
+	    }
+	    else if (direcaoLuz == Vector3.right)
+	    {
+		clonarLuz(Vector3.right, collider.transform.position, collider);
+		clonarLuz(Vector3.down, collider.transform.position, collider);
+		direcaoLuz = Vector3.zero;
+	    }
+	    else
+	    {
+		direcaoLuz = Vector3.zero;
+	    }
+	}
+	else if(collider.gameObject.tag == "div_left_up_down")
+	{
+	    if (direcaoLuz == Vector3.right)
+	    {
+		clonarLuz(Vector3.up, collider.transform.position, collider);
+		clonarLuz(Vector3.down, collider.transform.position, collider);
+		direcaoLuz = Vector3.zero;
+	    }
+	    else if (direcaoLuz == Vector3.down)
+	    {
+		clonarLuz(Vector3.left, collider.transform.position, collider);
+		clonarLuz(Vector3.down, collider.transform.position, collider);
+		direcaoLuz = Vector3.zero;
+	    }
+	    else if (direcaoLuz == Vector3.up)
+	    {
+		clonarLuz(Vector3.left, collider.transform.position, collider);
+		clonarLuz(Vector3.up, collider.transform.position, collider);
+		direcaoLuz = Vector3.zero;
+	    }
+	    else
+	    {
+		direcaoLuz = Vector3.zero;
+	    }
+	}
+	else if(collider.gameObject.tag == "div_up_right_left")
+	{
+	    if (direcaoLuz == Vector3.down)
+	    {
+		clonarLuz(Vector3.right, collider.transform.position, collider);
+		clonarLuz(Vector3.left, collider.transform.position, collider);
+		direcaoLuz = Vector3.zero;
+	    }
+	    else if (direcaoLuz == Vector3.left)
+	    {
+		clonarLuz(Vector3.left, collider.transform.position, collider);
+		clonarLuz(Vector3.up, collider.transform.position, collider);
+		direcaoLuz = Vector3.zero;
+	    }
+	    else if (direcaoLuz == Vector3.right)
+	    {
+		clonarLuz(Vector3.right, collider.transform.position, collider);
+		clonarLuz(Vector3.up, collider.transform.position, collider);
+		direcaoLuz = Vector3.zero;
+	    }
+	    else
+	    {
+		direcaoLuz = Vector3.zero;
+	    }
+	}
 	else
 	{
 	    Debug.Log("Enfiei a pica na parede");
@@ -114,6 +214,11 @@ public class movimento_do_raio : MonoBehaviour
 	    {
 		score.subir();
 		Debug.Log(score.valor);
+
+		if(score.valor >= score.total)
+		{
+		    Debug.Log("Condição de vitoria atingida");
+		}
 	    }
 	    return;
 	}
@@ -129,5 +234,21 @@ public class movimento_do_raio : MonoBehaviour
 	lineRenderer.SetPosition(lineRenderer.positionCount - 1, collider.transform.position);
 	GetComponent<Transform>().position = collider.transform.position;
 	lineRenderer.positionCount += 1;
+    }
+
+    public void clonarLuz(Vector3 dir, Vector3 posInicial, Collider2D collider)
+    {
+	var raioClone = Instantiate(gameObject, posInicial, Quaternion.identity);
+	var Luz = raioClone.GetComponent<movimento_do_raio>();
+
+	Luz.posInicial = posInicial;
+	Luz.direcaoLuz = dir;
+	Luz.lineRenderer.positionCount = 2;
+	Vector3[] positions = {Luz.posInicial, Luz.posInicial};
+	Luz.lineRenderer.SetPositions(positions);
+
+	Physics2D.IgnoreCollision(collider, raioClone.GetComponent<Collider2D>());
+
+	raioClone.name = "raioSolarClone";
     }
 }

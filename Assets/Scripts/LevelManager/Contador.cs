@@ -5,6 +5,7 @@ using UnityEngine;
 public class Contador : MonoBehaviour
 {
     public int valor;
+    public int total;
 
     void Awake()
     {

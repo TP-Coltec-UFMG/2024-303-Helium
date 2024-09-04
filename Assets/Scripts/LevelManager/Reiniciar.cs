@@ -21,7 +21,7 @@ public class Reiniciar : MonoBehaviour
     void OnMouseDown()
     {
 	sol.GetComponent<RaioLuzToggle>().reiniciarLuz();	
-	var objects = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "refletor");
+	var objects = Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "objetoEncaixado");
 	foreach (var obj in objects)
 	{
 	    Destroy(obj);
