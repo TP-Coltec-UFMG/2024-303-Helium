@@ -23,6 +23,7 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("nivelJogar");
         Debug.Log("Play signaled");
+	PlayerPrefs.SetInt("Level", 1);
         // SceneManager.LoadScene("");
     }
     /* Sistema de toggle (alternar os valores de qual menu está aberto) */

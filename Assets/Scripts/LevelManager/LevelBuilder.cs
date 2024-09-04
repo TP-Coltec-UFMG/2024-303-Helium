@@ -195,6 +195,10 @@ public class LevelBuilder : MonoBehaviour {
 	reiniciar.GetComponent<Transform>().localScale = new Vector3(3, 3, 1);
 	reiniciar.GetComponent<BoxCollider2D>().size = new Vector2(0.5f, 0.5f);
 
+    	var returnBot = Instantiate(_returnBot, new Vector3(
+			gridManager.offsetX + (columns*TILE_WIDTH)+TILE_WIDTH,
+			gridManager.offsetY + (TILE_HEIGHT*(rows-9)),0), Quaternion.identity);
+
 	//Não tampar o sol
 	var tampa = GameObject.Find("tileTeto0");
 	if (tampa != null)
