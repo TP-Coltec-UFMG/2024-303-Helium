@@ -9,9 +9,8 @@ public class movimento_do_raio : MonoBehaviour
     public float moveSpeed = 6f;
     public Vector3 posInicial;
     public Vector3 direcaoLuz;
-
-    private int contador = 0; 
-    public TextMeshProUGUI contadorText;
+    public GameObject contador;
+    private Contador score;
 
     void Start()
     {
@@ -21,6 +20,8 @@ public class movimento_do_raio : MonoBehaviour
 
 	lineRenderer.SetPosition(0, posInicial);
 	GetComponent<Transform>().position = posInicial;
+
+	score = contador.GetComponent<Contador>();
     }
 
     void Update ()
@@ -108,6 +109,12 @@ public class movimento_do_raio : MonoBehaviour
 	{
 	    Debug.Log("Enfiei a pica na parede");
 	    direcaoLuz = Vector3.zero;
+
+	    if (collider.gameObject.name == "massan")
+	    {
+		score.subir();
+		Debug.Log(score.valor);
+	    }
 	    return;
 	}
 

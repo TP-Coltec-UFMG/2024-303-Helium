@@ -51,6 +51,7 @@ public class RaioLuzToggle : MonoBehaviour
 	}
 
 	Luz.direcaoLuz = Vector3.zero;
+	Luz.contador.GetComponent<Contador>().zerar();
 	ObjetoFeixeDeLuz.transform.position = Luz.posInicial;
 
 	Luz.lineRenderer.positionCount = 2;

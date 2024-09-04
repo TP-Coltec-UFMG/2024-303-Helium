@@ -23,6 +23,8 @@ public class LevelBuilder : MonoBehaviour {
     [SerializeField] private GameObject _Bot_down_left;
     [SerializeField] private GameObject _limparTela;
 
+    public GameObject Score;
+
     private GameObject Sol; 
     private GameObject FeixeDeLuz; 
 
@@ -60,6 +62,13 @@ public class LevelBuilder : MonoBehaviour {
 	FeixeDeLuz = Instantiate(_FeixeDeLuzPrefab, pontoInicialLuz, Quaternion.identity);
 	FeixeDeLuz.GetComponent<movimento_do_raio>().posInicial = pontoInicialLuz;
 	FeixeDeLuz.name = "raioSolar";
+
+//*   - Highscore
+	Score = new GameObject();
+	Score.AddComponent<Contador>();
+	Score.name = "Score";
+
+	FeixeDeLuz.GetComponent<movimento_do_raio>().contador = Score;
 
  //*  - Posicionar o sol
 	Sol = Instantiate(_SolPrefab, pontoInicialLuz, Quaternion.identity);
