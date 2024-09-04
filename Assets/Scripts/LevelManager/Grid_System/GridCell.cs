@@ -31,16 +31,17 @@ public class GridCell : MonoBehaviour
 
     void OnMouseDown()
     {
+	var raio = GameObject.Find("raioSolar");
 	string TileName = gameObject.name;
 	GameObject hangover = GameObject.Find("hangedRefletor");
 	
-	if(hangover != null && GameObject.Find($"{gameObject.name}.refletor") == null)
+	if(hangover != null && GameObject.Find($"{gameObject.name}.refletor") == null && raio.GetComponent<movimento_do_raio>().direcaoLuz == Vector3.zero)
 	{
 	    hangover.GetComponent<Transform>().position = 
 		gameObject.transform.position + new Vector3(0,0,-1);
 
 	    hangover.GetComponent<Renderer>().enabled = true;
-	    hangover.name = $"{gameObject.name}.refletor";
+	    hangover.name = $"refletor";
 	}
     }
 }

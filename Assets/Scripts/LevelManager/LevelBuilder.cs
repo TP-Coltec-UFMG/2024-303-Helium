@@ -17,6 +17,11 @@ public class LevelBuilder : MonoBehaviour {
     [SerializeField] private GameObject _SolPrefab; 
     [SerializeField] private GameObject _FeixeDeLuzPrefab; 
     [SerializeField] private GameObject _Maca;
+    [SerializeField] private GameObject _Bot_up_right;
+    [SerializeField] private GameObject _Bot_up_left;
+    [SerializeField] private GameObject _Bot_down_right;
+    [SerializeField] private GameObject _Bot_down_left;
+    [SerializeField] private GameObject _limparTela;
 
     private GameObject Sol; 
     private GameObject FeixeDeLuz; 
@@ -157,6 +162,23 @@ public class LevelBuilder : MonoBehaviour {
 	    tileParedeEsq.GetComponent<SpriteRenderer>().enabled = false;
 	}
 
+	Instantiate(_Bot_up_right, new Vector3(
+			gridManager.offsetX + (TILE_WIDTH*-1),
+			gridManager.offsetY + (TILE_HEIGHT*rows),0), Quaternion.identity);
+    	Instantiate(_Bot_up_left, new Vector3(
+			gridManager.offsetX + (TILE_WIDTH*-1),
+			gridManager.offsetY + (TILE_HEIGHT*(rows-2)),0), Quaternion.identity);
+    	Instantiate(_Bot_down_right, new Vector3(
+			gridManager.offsetX + (TILE_WIDTH*-1),
+			gridManager.offsetY + (TILE_HEIGHT*(rows-4)),0), Quaternion.identity);
+    	Instantiate(_Bot_down_left, new Vector3(
+			gridManager.offsetX + (TILE_WIDTH*-1),
+			gridManager.offsetY + (TILE_HEIGHT*(rows-6)),0), Quaternion.identity);
+    	var reiniciar = Instantiate(_limparTela, new Vector3(
+			gridManager.offsetX + (TILE_WIDTH*-1),
+			gridManager.offsetY + (TILE_HEIGHT*(rows-8)),0), Quaternion.identity);
+
+	reiniciar.GetComponent<Reiniciar>().sol = Sol;
 	//Não tampar o sol
 	var tampa = GameObject.Find("tileTeto0");
 	if (tampa != null)

@@ -9,8 +9,8 @@ public class ButtonRefletores : MonoBehaviour{
     void OnMouseDown (){
         newPosition = new Vector3(100, 100, -1);
 
-        // Verifica se o objeto que vai se clonado foi atribuído
-        if (objeto != null)
+        // Verifica se o objeto que vai se clonado foi atribuído e o raio está parado
+        if (objeto != null )
 	{
 	    //Logica para que não tenha mais de um refletor "selecionado"
 	    if (GameObject.Find("hangedRefletor") != null)
