@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class movimento_do_raio : MonoBehaviour
@@ -218,6 +219,12 @@ public class movimento_do_raio : MonoBehaviour
 		if(score.valor >= score.total)
 		{
 		    Debug.Log("Condição de vitoria atingida");
+		    int nivelAtual = PlayerPrefs.GetInt("Level");
+		    nivelAtual += 1;
+		    PlayerPrefs.SetInt("Level", nivelAtual);
+
+		    Scene scene = SceneManager.GetActiveScene();
+		    SceneManager.LoadScene(scene.name);
 		}
 	    }
 	    return;

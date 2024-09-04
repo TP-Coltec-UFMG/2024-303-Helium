@@ -21,7 +21,7 @@ public class MenuManager : MonoBehaviour
     }
     public void PressStart()
     {
-        SceneManager.LoadScene("Niveis");
+        SceneManager.LoadScene("nivelJogar");
         Debug.Log("Play signaled");
         // SceneManager.LoadScene("");
     }

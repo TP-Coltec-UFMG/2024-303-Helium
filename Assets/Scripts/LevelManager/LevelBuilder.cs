@@ -44,7 +44,7 @@ public class LevelBuilder : MonoBehaviour {
     // Start is called before the first frame update
     void Awake()
     {
-	Debug.Log("Level Builder Awake");
+	//Debug.Log("Level Builder Awake");
  //*  - Criar a grid
 	levelGrid = new GameObject("levelGrid", typeof(GridManager));
 
@@ -81,19 +81,19 @@ public class LevelBuilder : MonoBehaviour {
 	Sol.name = "Sol";
 
 //*   - Maçãs aleatorias
-	Score.GetComponent<Contador>().total = ColocarMaca(14012006);
+	Score.GetComponent<Contador>().total = ColocarMaca(PlayerPrefs.GetInt("Level", 1));
 //*   - Parede envolta da grid
 	CriarParedes();
     }
 
     void OnEnable()
     {
-	Debug.Log("Level Builder OnEnable");
+	//Debug.Log("Level Builder OnEnable");
     }
 
     void Start()
     {
-	Debug.Log("Level Builder Start");
+	//Debug.Log("Level Builder Start");
     }
 
     // Update is called once per frame
@@ -104,9 +104,10 @@ public class LevelBuilder : MonoBehaviour {
 
     public int ColocarMaca(int espermatozoide)
     {
-	Random.InitState(espermatozoide);
+	Debug.Log(espermatozoide);
+	Random.InitState(espermatozoide + 14012006);
 	
-	int amountMaca = Random.Range(1,4);
+	int amountMaca = Random.Range(1,8);
 
 	int[,] macaPos = new int[amountMaca, 2];
 
@@ -122,8 +123,8 @@ public class LevelBuilder : MonoBehaviour {
 	for(int i = 0; i<amountMaca; i++)
 	{
 	    Vector3 gridMaca = gridManager.grid[macaPos[i, 0], macaPos[i, 1]].transform.position;
-	    Debug.Log($"Maca {i}: x = {macaPos[i, 0]}, y = {macaPos[i, 1]}");
-	    Debug.Log(gridMaca);
+	    //Debug.Log($"Maca {i}: x = {macaPos[i, 0]}, y = {macaPos[i, 1]}");
+	    //Debug.Log(gridMaca);
 	    var maca = Instantiate(_Maca, gridMaca, Quaternion.identity);
 	    maca.name = "massan";
 	}

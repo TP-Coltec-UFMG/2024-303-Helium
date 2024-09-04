@@ -7,7 +7,7 @@ public class AdvanceLevel : MonoBehaviour
     void Start(){
         int level = PlayerPrefs.GetInt("Level", 1);
 
-        if(level){
+        if(level > 1){
             PlayerPrefs.SetInt("Level", ++level);
         } else {
             PlayerPrefs.SetInt("Level", 1);
