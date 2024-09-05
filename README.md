@@ -6,7 +6,7 @@
 
 ### Sobre
 
-Trata-se de um *point-and-click* de múltiplas fases em que seu objetivo é direcionar o sol até às plantas.
+Trata-se de um *point-and-click* de múltiplas fases em que seu objetivo é direcionar o sol até as maçãs. Sabendo que as frutas absorvem esse espectro de luz, deve-se do fenômeno da difração -- a capacidade da luz de contornar obstáculos (e superar dificuldades (; ) para garantir que cada maçã seja atingida por pelo menos um feixe. O jogo acaba quando você chega em um nível impossível. :FeelsBadMan:
 
 <!-- Screenshot da gameplay
 <p align="center">
@@ -21,22 +21,25 @@ Trata-se de um *point-and-click* de múltiplas fases em que seu objetivo é dire
 <p align="center">
     <img src=".media/menu.png">
 </p>
-<!-- Screenshots do menu de opções
-<p align="center">
-    <img src=".media/menu_opcoes.png">
-</p>
--->
 
 
 O menu acessível consiste em:
 - Jogar;
 - Opções;
     - Filtros de daltonismo;
-    <!-- <img src=".media/menu_opcoes_daltonismo.png"> Colagem lado-a-lado do menu com diferentes filtros de daltonismo -->
+    <img src=".media/menu_opcoes_daltonismo.jpg"> <!-- Colagem lado-a-lado do menu com diferentes filtros de daltonismo -->
     - Volume:
         - Mixagem dos efeitos sonoros e da música ambiente;
+    - Alternância estéreo/mono;
 - Créditos; e
 - Sair.
+
+<!-- Screenshot do menu de opções -->
+<p align="center">
+    <img src=".media/menu_opcoes.png">
+</p>
+
+Além dessas especificações, o design do menu é feito em alto contraste, além de valer-se da dificuldade adaptativa dos níveis que seguem do tutorial. Nenhuma informação é transmitida apenas por texto ou som.
 
 ## Feito por
 - [Arif Drumond](https://github.com/drumon-iq);
